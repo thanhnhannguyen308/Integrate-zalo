@@ -1,0 +1,59 @@
+﻿@page "/auth"
+
+@using Microsoft.AspNetCore.WebUtilities;
+@using Zalo.Web.Services;
+
+@inject NavigationManager NavigationManager
+@inject TempDataService TempDataService
+@inject IJSRuntime JSRuntime
+@inject AuthService authService
+
+<PageTitle>Auth</PageTitle>
+
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var code = GetQueryParameters();
+        Console.WriteLine($"code: {code}");
+        if (!string.IsNullOrEmpty(code))
+        {
+            await SaveToLocalStorage("code", code);
+            await GetAccessToken(code);
+            NavigationManager.NavigateTo("/");
+        }
+    }
+
+    private async Task SaveToLocalStorage(string key, string value)
+    {
+        await JSRuntime.InvokeVoidAsync("localStorageFunctions.setItem", key, value);
+    }
+
+    private string GetQueryParameters()
+    {
+        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+        var queryParams = QueryHelpers.ParseQuery(uri.Query);
+
+        // Convert query parameters to a dictionary for easier access
+        var queryParameters = new Dictionary<string, string>();
+        foreach (var queryParam in queryParams)
+        {
+            queryParameters[queryParam.Key] = queryParam.Value.FirstOrDefault();
+        }
+        TempDataService.OAID = queryParameters.ContainsKey("oa_id") ? queryParameters["oa_id"] : "";
+        TempDataService.Code = queryParameters.ContainsKey("code") ? queryParameters["code"] : "";
+        return TempDataService.Code;
+    }
+
+    public async Task GetAccessToken(string code)
+    {
+        var data = await authService.GetAccessToken(code);
+
+        if (data != null)
+        {
+            await SaveToLocalStorage("AccessToken", data.AccessToken);
+            await SaveToLocalStorage("RefreshToken", data.RefreshToken);
+        }
+    }
+}

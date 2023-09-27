@@ -1,0 +1,1049 @@
+{
+	"info": {
+		"_postman_id": "b9e9669e-974f-4956-8a7f-1d9ba5832a3d",
+		"name": "Official Account API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26495576",
+		"_collection_link": "https://interstellar-meteor-867839.postman.co/workspace/Integrate-zalo~4f917c72-fc89-4999-a005-4c93a63f8c5c/collection/26495576-b9e9669e-974f-4956-8a7f-1d9ba5832a3d?action=share&source=collection_link&creator=26495576"
+	},
+	"item": [
+		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "Send Text",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "bW0K88S8b7oP3HOkYGAJUfu942oMVCKloHX0Svf3ds36965Br4kpVyDEDqYiFDHkvZSSC_bE-2Jj60KihKVQ6Sq29XEPTFWZpm4hCfXgusB67JLfgHMzGCbCFcQNAUzNzaizP8GYrtBkLYfp_YpzLRCW3sJ3MTSmh0Wh1VvYq5MBFLHvpqgLHOX3V1BwFBKxi3Xo6k13a0xt2aHIdLs6KOWGKcNwOxLHwGisQufzq6EL2ZDDt0xeOBzVF47y3zH2xqSB5AOuuYlmGo88eGo_6ya0Vag01UDsqrudLA8rtK3EQnWMXcB6GkSAEdYWHUrLzau529q5c1VEL4Gnfpw4CxbX1s7UAzLdhLSJTSbVvq6bB3zHi6lgLV41CNEEHCn9uY4CQP5ItctKLrv6n3Y0Tvjc0Y8cFR1bX1ESVG"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n  \"recipient\":{\r\n    \"user_id\":\"5809217597343085679\"\r\n  },\r\n  \"message\":{\r\n    \"text\":\"hello, world!\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v3.0/oa/message/cs",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v3.0",
+								"oa",
+								"message",
+								"cs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n  \"recipient\": {\r\n    \"user_id\": \"5809217597343085679\"\r\n  },\r\n  \"message\": {\r\n    \"text\": \"Zalo đạt 100 triệu người dùng\",\r\n    \"attachment\": {\r\n        \"type\": \"template\",\r\n        \"payload\": {\r\n            \"template_type\": \"media\",\r\n            \"elements\": [{\r\n                \"media_type\": \"image\",\r\n                \"url\": \"https://stc-developers.zdn.vn/images/bg_1.jpg\"\r\n            }[]\r\n        }\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v3.0/oa/message/cs",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v3.0",
+								"oa",
+								"message",
+								"cs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"recipient\": {\r\n    \"user_id\": \"5809217597343085679\"\r\n  },\r\n  \"message\": {\r\n    \"attachment\": {\r\n        \"type\": \"file\",\r\n        \"payload\": {\r\n            \"token\": \"12i8LV3BcmmDS4iLfyoU3qKxHXNtpu077ZjA7xRHmmi8EXrEjuR50LHjJXJWWvTQ17OJ7R2Oc5q4SHSJjPoPKmDq5X2tyS4MI78oKexCna1CUJnQyiMvUKmfG7UOX8PYVW5FJAckbWbi1tWbj8BnCNOyTGMBr8mrG5XZ4epkfbD4HczzjUs3FM0QL1ZM\"\r\n        }\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v3.0/oa/message/cs",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v3.0",
+								"oa",
+								"message",
+								"cs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Template",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"recipient\": {\r\n    \"user_id\": \"5809217597343085679\"\r\n  },\r\n  \"message\": {\r\n    \"attachment\": {\r\n        \"type\": \"template\",\r\n        \"payload\": {\r\n            \"template_type\": \"request_user_info\",\r\n            \"elements\": [{\r\n                \"title\": \"OA Chatbot (Testing)\",\r\n                \"subtitle\": \"Đang yêu cầu thông tin từ bạn\",\r\n                \"image_url\": \"https://developers.zalo.me/web/static/zalo.png\"\r\n            }]\r\n        }\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v3.0/oa/message/cs",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v3.0",
+								"oa",
+								"message",
+								"cs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Quoted Text",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"recipient\": {\r\n       \"user_id\": \"5809217597343085679\"\r\n   },\r\n   \"message\": {\r\n       \"text\": \"Chào bạn, Shop có địa chỉ là 182 Lê Đại Hành, P15, Q10, HCM\",\r\n       \"quote_message_id\": \"48687128d04c9410cd5f\"\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v3.0/oa/message/cs",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v3.0",
+								"oa",
+								"message",
+								"cs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Stickers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"recipient\": {\r\n    \"user_id\": \"5809217597343085679\"\r\n  },\r\n  \"message\": {\r\n    \"attachment\": {\r\n        \"type\": \"template\",\r\n        \"payload\": {\r\n            \"template_type\": \"media\",\r\n            \"elements\": [{\r\n                \"media_type\": \"sticker\",\r\n                \"attachment_id\": \"bfe458bf64fa8da4d4eb\"\r\n            }[]\r\n        }\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v3.0/oa/message/cs",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v3.0",
+								"oa",
+								"message",
+								"cs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Message Transaction",
+			"item": [
+				{
+					"name": "Transaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipient\": {\r\n        \"user_id\": \"5809217597343085679\"\r\n    },\r\n    \"message\": {\r\n        \"attachment\": {\r\n            \"type\": \"template\",\r\n            \"payload\": {\r\n                \"template_type\": \"transaction_order\",\r\n                \"language\": \"VI\",\r\n                \"elements\": [\r\n                    {\r\n                        \"attachment_id\": \"a-JJEvLdkcEPxTOwb6gYTfhwm26VSBHjaE3MDfrWedgLyC0smJRiA8w-csdGVg1cdxZLPT1je7k4i8nwbdYrSCJact3NOVGltEUQTjDayIhTvf1zqsR-Ai3aboRERgjvm-cI8iqv-NoIxi0cdNBoE6SYVJooM6xKTBft\",\r\n                        \"type\": \"banner\"\r\n                    },\r\n                      {\r\n                        \"type\": \"header\",\r\n                        \"content\": \"Trạng thái đơn hàng\",\r\n                        \"align\": \"left\"\r\n                    },\r\n                    {\r\n                        \"type\": \"text\",\r\n                        \"align\": \"left\",\r\n                        \"content\": \"• Cảm ơn bạn đã mua hàng tại cửa hàng.<br>• Thông tin đơn hàng của bạn như sau:\"\r\n                    },\r\n                    {\r\n                        \"type\": \"table\",\r\n                        \"content\": [\r\n                            {\r\n                                \"value\": \"F-01332973223\",\r\n                                \"key\":\"Mã khách hàng\"\r\n                            },\r\n                            {\r\n                                \"style\": \"yellow\",\r\n                                \"value\": \"Đang giao\",\r\n                                \"key\": \"Trạng thái\"\r\n                            },\r\n                            {\r\n                                \"value\": \"250,000đ\",\r\n                                \"key\": \"Giá tiền\"\r\n                            }\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"text\",\r\n                        \"align\": \"center\",\r\n                        \"content\": \"📱Lưu ý điện thoại. Xin cảm ơn!\"\r\n                    }\r\n                ],\r\n                \"buttons\": [\r\n                    {\r\n                        \"title\": \"Kiểm tra lộ trình - default icon\",\r\n                        \"image_icon\": \"\",\r\n                        \"type\": \"oa.open.url\",\r\n                        \"payload\": {\r\n                            \"url\": \"https://oa.zalo.me/home\"\r\n                        }\r\n                    },\r\n                    {\r\n                        \"title\": \"Xem lại giỏ hàng\",\r\n                        \"image_icon\": \"wZ753VDsR4xWEC89zNTsNkGZr1xsPs19vZF22VHtTbxZ8zG9g24u3FXjZrQvQNH2wMl1MhbwT5_oOvX5_szXLB8tZq--TY0Dhp61JRfsAWglCej8ltmg3xC_rqsWAdjRkctG5lXzAGVlQe9BhZ9mJcSYVIDsc7MoPMnQ\",\r\n                        \"type\": \"oa.query.show\",\r\n                        \"payload\": \"kiểm tra giỏ hàng\"\r\n                    }\r\n                    ,\r\n                    {\r\n                        \"title\": \"Liên hệ tổng đài\",\r\n                        \"image_icon\": \"gNf2KPUOTG-ZSqLJaPTl6QTcKqIIXtaEfNP5Kv2NRncWPbDJpC4XIxie20pTYMq5gYv60DsQRHYn9XyVcuzu4_5o21NQbZbCxd087DcJFq7bTmeUq9qwGVie2ahEpZuLg2KDJfJ0Q12c85jAczqtKcSYVGJJ1cZMYtKR\",\r\n                        \"type\": \"oa.open.phone\",\r\n                        \"payload\": {\r\n                            \"phone_code\":\"84123456789\"\r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    }\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v3.0/oa/message/transaction",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v3.0",
+								"oa",
+								"message",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Message promote",
+			"item": [
+				{
+					"name": "Promote",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "T_oE1VwZZmTuyOmByAc80N_rYWdlgD4V9BgJJAwzxoHof9mfbeB6UaovlpR5jTzADRcKERk1wbipdxaftup5Qo-FaZpQj-jH8-MIAV_a_6WMsf84t_pe2JVkW4JUwOCq1idWJl7rd3ietfqqmUpMVLAmedRTw-801U_WJSl_cIP5hS1RafQG46BAmaQeZRKbBxVzSC2FYn4Ab_GIW8YI45FRysMEWgys1T2lGi70vnX6axzAaSwvHad1knUJmiH65UoZB8REsY5g_gnleCkjOLZc-nlJlgKNCfR3TBYBc0iniUi8-AcSMtwan12dbxjAKQtz1QR--tnmsFrpjCkf7qNlo12VqAv8PjYk7gxTy79J-80CXQV1OdAPamhwgyXzSucS5hYaw4DdYP0dwRp2VRvgCJlzk8S6"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipient\": {\r\n        \"user_id\": \"8812356279981591482\"\r\n    },\r\n    \"message\": {\r\n        \"attachment\": {\r\n            \"type\": \"template\",\r\n            \"payload\": {\r\n                \"template_type\": \"promotion\",\r\n                \"elements\": [\r\n                    {\r\n                        \"attachment_id\":\"aERC3A0iYGgQxim8fYIK6fxzsXkaFfq7ZFRB3RCyZH6RyziRis3RNydebK3iSPCJX_cJ3k1nW1EQufjN_pUL1f6Ypq3rTef5nxp6H_HnXKFDiyD5y762HS-baqRpQe5FdA376lTfq1sRyPr8ypd74ecbaLyA-tGmuJ-97W\",\r\n                        \"type\": \"banner\"\r\n                    },\r\n                    {\r\n                        \"type\": \"header\",\r\n                        \"content\": \"💥💥Ưu đãi thành viên Platinum💥💥\"\r\n                    },\r\n                    {\r\n                        \"type\": \"text\",\r\n                        \"align\": \"left\",\r\n                        \"content\": \"Ưu đãi dành riêng cho khách hàng Nguyen Van A hạng thẻ Platinum<br>Voucher trị giá 150$\"\r\n                    },\r\n                    {\r\n                        \"type\": \"table\",\r\n                        \"content\": [\r\n                            {\r\n                                \"value\": \"VC09279222\",\r\n                                \"key\": \"Voucher\"\r\n                            },\r\n                            {\r\n                                \"value\": \"30/12/2023\",\r\n                                \"key\": \"Hạn sử dụng\"\r\n                            }\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"type\": \"text\",\r\n                        \"align\": \"center\",\r\n                        \"content\": \"Áp dụng tất cả cửa hàng trên toàn quốc\"\r\n                    }\r\n                ],\r\n                \"buttons\": [\r\n                    {\r\n                        \"title\": \"Tham khảo chương trình\",\r\n                        \"image_icon\": \"\",\r\n                        \"type\": \"oa.open.url\", \r\n                        \"payload\": { \r\n                           \"url\": \"https://oa.zalo.me/home\" \r\n                                   }\r\n                        },\r\n                        {\r\n                        \"title\": \"Liên hệ chăm sóc viên\",\r\n                        \"image_icon\": \"aeqg9SYn3nIUYYeWohGI1fYRF3V9f0GHceig8Ckq4WQVcpmWb-9SL8JLPt-6gX0QbTCfSuQv40UEst1imAm53CwFPsQ1jq9MsOnlQe6rIrZOYcrlWBTAKy_UQsV9vnfGozCuOvFfIbN5rcXddFKM4sSYVM0D50I9eWy3\",\r\n                        \"type\": \"oa.query.hide\",\r\n                        \"payload\": \"#tuvan\"\r\n                        \r\n                    }\r\n                ]\r\n            }\r\n            }\r\n        }\r\n    }\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v3.0/oa/message/promotion",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v3.0",
+								"oa",
+								"message",
+								"promotion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Broadcast",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"recipient\": {\r\n    \"target\": {\r\n      \"gender\": \"0\",\r\n      \"cities\": \"4\"\r\n    }\r\n  },\r\n  \"message\": {\r\n    \"attachment\": {\r\n      \"type\": \"template\",\r\n      \"payload\": {\r\n        \"template_type\": \"media\",\r\n        \"elements\": [\r\n          {\r\n            \"media_type\": \"article\",\r\n            \"attachment_id\": \"bd5ea46bb32e5a0033f\"\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/message",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"message"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orther Message",
+			"item": [
+				{
+					"name": "Send Text User Anonymous",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n  \"recipient\":{\r\n    \"anonymous_id\": \"1ffedc467f179649cf06\",\r\n    \"conversation_id\": \"fa8f3f8701c2e89cb1d3\"\r\n  },\r\n  \"message\":{\r\n    \"text\":\"hello, world!\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/message",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Image User Anonymous",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n  \"recipient\": {\r\n    \"anonymous_id\": \"1ffedc467f179649cf06\",\r\n    \"conversation_id\": \"fa8f3f8701c2e89cb1d3\"\r\n  },\r\n  \"message\": {\r\n    \"attachment\": {\r\n        \"type\": \"template\",\r\n        \"payload\": {\r\n            \"template_type\": \"media\",\r\n            \"elements\": [{\r\n                \"media_type\": \"image\",\r\n                \"attachment_id\": \"51586aa2e5a40cfa55b5\"\r\n            }[]\r\n        }\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/message",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send File User Anonymous",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"recipient\": {\r\n    \"anonymous_id\": \"5443873f256ecc30957f\",\r\n    \"conversation_id\": \"2c298a21b4645d3a0475\"\r\n  },\r\n  \"message\": {\r\n    \"attachment\": {\r\n        \"type\": \"file\",\r\n        \"payload\": {\r\n            \"token\": \"12i8LV3BcmmDS4iLfyoU3qKxHXNtpu077ZjA7xRHmmi8EXrEjuR50LHjJXJWWvTQ17OJ7R2Oc5q4SHSJjPoPKmDq5X2tyS4MI78oKexCna1CUJnQyiMvUKmfG7UOX8PYVW5FJAckbWbi1tWbj8BnCNOyTGMBr8mrG5XZ4epkfbD4HczzjUs3FM0QL1ZM\"\r\n        }\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/message",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Stickers User Anonymous",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"recipient\": {\r\n    \"anonymous_id\": \"5443873f256ecc30957f\",\r\n    \"conversation_id\": \"2c298a21b4645d3a0475\"\r\n  },\r\n  \"message\": {\r\n    \"attachment\": {\r\n        \"type\": \"template\",\r\n        \"payload\": {\r\n            \"template_type\": \"media\",\r\n            \"elements\": [{\r\n                \"media_type\": \"sticker\",\r\n                \"attachment_id\": \"bfe458bf64fa8da4d4eb\"\r\n            }[]\r\n        }\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/message",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "React Icon To Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "<your_access_token>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"recipient\": {\r\n       \"user_id\": \"186729651760683225\"\r\n   },\r\n   \"sender_action\": {\r\n       \"react_icon\": \"/-strong\",\r\n       \"react_message_id\": \"789f573aecf8a9a4f0eb\"\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/message",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"message"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Manager Message",
+			"item": [
+				{
+					"name": "Check your message send limit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"5809217597343085679\"\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v3.0/oa/quota/message",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v3.0",
+								"oa",
+								"quota",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Recent Chat",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/listrecentchat?data={\"offset\":0,\"count\":5}",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"listrecentchat"
+							],
+							"query": [
+								{
+									"key": "data",
+									"value": "{\"offset\":0,\"count\":5}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Conversation Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/conversation?data={\"user_id\":5809217597343085679,\"offset\":0,\"count\":5}",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"conversation"
+							],
+							"query": [
+								{
+									"key": "data",
+									"value": "{\"user_id\":5809217597343085679,\"offset\":0,\"count\":5}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/test.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/upload/image",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"upload",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/test.docx"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/upload/file",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"upload",
+								"file"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Image GIF",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/test.gif"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/upload/gif",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"upload",
+								"gif"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Call Phone",
+			"item": [
+				{
+					"name": "Check Consent Phone ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/call/checkconsent?data={\"phone\":\"84333822551\"}",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"call",
+								"checkconsent"
+							],
+							"query": [
+								{
+									"key": "data",
+									"value": "{\"phone\":\"84333822551\"}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Manage",
+			"item": [
+				{
+					"name": "Get Followers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/getfollowers?data={\"offset\":0,\"count\":5,\"tag_name\":\"\"}",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"getfollowers"
+							],
+							"query": [
+								{
+									"key": "data",
+									"value": "{\"offset\":0,\"count\":5,\"tag_name\":\"\"}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Info Customer Folower",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/getprofile?data={\"user_id\":\"5809217597343085679\"}",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"getprofile"
+							],
+							"query": [
+								{
+									"key": "data",
+									"value": "{\"user_id\":\"5809217597343085679\"}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Follower Info",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \\\r\n    \"user_id\": \"5809217597343085679\",\r\n    \"name\": \"Huynh Hong Hien\",\r\n    \"phone\": \"012345678\",\r\n    \"address\":\"ho chi minh\",\r\n    \"city_id\": city_id,\r\n    \"district_id\": district_id,\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/updatefollowerinfo",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"updatefollowerinfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Follower Info",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"5809217597343085679\"\r\n}"
+						},
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/deletefollowerinfo",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"deletefollowerinfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Quota Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/quota/message",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"quota",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Info OA",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "Swu7OFhip3zyemLkzERBENkd0sphlO9a8ESGOQZwiLXZ_Zu8hlEKDrV7F1JTu9L44k4_OUF__6rhvrXTcyZvRHtJS7-HrCvoI-XUUwB9zbDqr6X3_i3vOGJ2PKBOrD9CDirRIUdFrqXdzG5yXiM0V6xGAbxbwfvQ4VDNQipcu6K2-L1DxyZ1I3oD3WFZk9q82AKEEkoPa1jYY0Oxw9gCRJ-N0rtWeevk5eL0UDc_WreMl09TmuEjJKgP4LE3chrwNfbqVwQY-79GuJP6flEC677SHJsRuzSTO-D1LeUZr0bAlMawZfkh7r-12WcYaxy2MOSWL8QqaNT1knfhbeUsLNcv2twLzwbgRROPOfsmsb1rXa9FfSYCPt3E67k3_zPi3CLoNFJywrifpNT9tOcqG56d1HA-T_jc-VV4FW"
+							}
+						],
+						"url": {
+							"raw": "https://openapi.zalo.me/v2.0/oa/getoa",
+							"protocol": "https",
+							"host": [
+								"openapi",
+								"zalo",
+								"me"
+							],
+							"path": [
+								"v2.0",
+								"oa",
+								"getoa"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Access Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "secret_key",
+						"value": "7EO9vNP4HuNBEPVUB5xJ"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "code",
+							"value": "dXLKvf7Yu7Ib4bsghSp6UfvCIQtib_zqq4CzfhwsiGs7Sn2eWe-GRxHfCwQtqxnzp0qCgisXztIrOKdQYANgSe1OKA6SkyDHgH9yiDlBr6_k5Wo8aTYf9QmQKfICpfKSoajhW93jua7Z84puXgBUGhyeTP3a-j0n-mDXzkV_x33eJN2ddPJVQT08MT3xfhSklprNaBl7wbcq7LY1nDomTCfz6hgg-8SAn4PfzQ3Rr4JIUYpCW_EH3ObC0yA8WT0frmn0dUkSQpFaRz_GrPRLy-z2VpNjy_lgxWyTc-BdorJi4a30m-VN_kabE3dJoQfOCp0-jt3Tk7WjSHcE9gp0Dtq03O0PuyvFQYOCxX7uaqHsHp3-Nback9m1KDJYtte",
+							"type": "text"
+						},
+						{
+							"key": "app_id",
+							"value": "887509882762511633",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code_verifier",
+							"value": "your_code_verifier",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://oauth.zaloapp.com/v4/oa/access_token",
+					"protocol": "https",
+					"host": [
+						"oauth",
+						"zaloapp",
+						"com"
+					],
+					"path": [
+						"v4",
+						"oa",
+						"access_token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

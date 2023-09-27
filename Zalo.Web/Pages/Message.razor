@@ -1,0 +1,114 @@
+﻿@page "/message"
+@using System.ComponentModel.DataAnnotations;
+@using System.Text.Json;
+@using Zalo.Model;
+@using Zalo.Web.Services;
+
+@inject TempDataService tempDataService;
+@inject Zalo.Web.Services.MessageService messageService;
+@inject IJSRuntime JSRuntime
+
+<div>
+    <GridRow>
+        <GridCol Span="8"></GridCol>
+        <GridCol Span="8">
+            <Form @ref="form"
+                  Model="@model"
+                  OnFinish="OnFinish"
+                  OnFinishFailed="OnFinishFailed"
+                  LabelColSpan="8"
+                  WrapperColSpan="16">
+                
+                <FormItem Label="User Id">
+                    <Select @bind-Value="@context.UserId"
+                            TItemValue="string"
+                            TItem="string"
+                            DefaultActiveFirstOption="false"
+                            Placeholder="Select User Id"
+                            OnSelectedItemChanged="OnChanged">
+                        <SelectOptions>
+                            <SelectOption TItemValue="string" TItem="string" Value="@("5809217597343085679")" Label="Nguyen Nhan" />  
+                        </SelectOptions>
+                    </Select>
+                </FormItem>
+
+                <FormItem Label="Text">
+                    <TextArea Rows="4" @bind-Value="@context.Text" />
+                </FormItem>
+
+                <FormItem WrapperColOffset="8" WrapperColSpan="16">
+                    <Button Type="@ButtonType.Primary" HtmlType="submit">
+                        Send
+                    </Button>
+                    <Button OnClick="Reset">
+                        Reset
+                    </Button>
+                </FormItem>
+            </Form>
+        </GridCol>
+        <GridCol Span="8"></GridCol>
+    </GridRow>
+    @if (isSuccess)
+    {
+        <Alert Type="@AlertType.Success" Message="Send Success" />
+    }
+    
+</div>
+
+@code {
+    public class Model
+    {
+        [Required]
+        public string Text { get; set; }
+        [Required]
+        public string UserId { get; set; }
+    }
+
+    private Model model = new Model();
+    private Form<Model> form;
+    private bool isSuccess = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var localStorageAccessToken = await JSRuntime.InvokeAsync<string>("localStorageFunctions.getItem", "AccessToken");
+        if (!string.IsNullOrEmpty(localStorageAccessToken))
+        {
+            tempDataService.AccessToken = localStorageAccessToken;
+        }
+    }
+
+    private void Reset(MouseEventArgs args)
+    {
+        form.Reset();
+        isSuccess = false;
+    }
+
+    private async void OnFinish(EditContext editContext)
+    {
+        var requestData = new MessageTextRequest
+        {
+            UserId = model.UserId,
+            MessageText = model.Text,
+            AccessToken = tempDataService.AccessToken
+        };
+        var data = await messageService.SendMessageText(requestData);
+        if(data.Error == 0)
+        {
+            isSuccess = true;
+        }else
+        {
+            isSuccess = false;
+        }
+        StateHasChanged();
+    }
+
+    private void OnFinishFailed(EditContext editContext)
+    {
+        Console.WriteLine($"Failed:{JsonSerializer.Serialize(model)}");
+    }
+
+    private void OnChanged(string userId)
+    {
+        form.Model.UserId = userId;
+    }
+}

@@ -1,0 +1,90 @@
+﻿@page "/"
+@using Zalo.Model;
+@using Zalo.Web.Services;
+
+@inject NavigationManager NavigationManager;
+@inject TempDataService TempDataService;
+@inject ManageService manageService;
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Index</PageTitle>
+@if (!string.IsNullOrEmpty(TempDataService.AccessToken))
+{
+    <h1>Hello, world!</h1>
+
+    <p>Welcome to your new app.</p>
+
+    <GridRow Gutter="@gutter">
+        <GridCol Class="gutter-row" Span="6" Offset="6">
+            <div style="@style">OA ID:</div>
+        </GridCol>
+        <GridCol Class="gutter-row" Span="6">
+            <div style="@style">@infoOAModel.Data.OAId</div>
+        </GridCol>
+        <GridCol Class="gutter-row" Span="6">
+            <div style="@style"></div>
+        </GridCol>
+    </GridRow>
+    <Divider></Divider>
+    <GridRow Gutter="@gutter">
+        <GridCol Class="gutter-row" Span="6" Offset="6">
+            <div style="@style">Name:</div>
+        </GridCol>
+        <GridCol Class="gutter-row" Span="6">
+            <div style="@style">@infoOAModel.Data.Name</div>
+        </GridCol>
+        <GridCol Class="gutter-row" Span="6">
+            <div style="@style"></div>
+        </GridCol>
+    </GridRow>
+    <Divider></Divider>
+    <GridRow Gutter="@gutter">
+        <GridCol Class="gutter-row" Span="6" Offset="6">
+            <div style="@style">Description:</div>
+        </GridCol>
+        <GridCol Class="gutter-row" Span="6">
+            <div style="@style">@infoOAModel.Data.Description</div>
+        </GridCol>
+        <GridCol Class="gutter-row" Span="6">
+            <div style="@style"></div>
+        </GridCol>
+    </GridRow>
+}
+
+
+
+
+@code {
+    string style = "";
+    Dictionary<string, int> gutter = new()
+    {
+        ["xs"] = 8,
+        ["sm"] = 16,
+        ["md"] = 24,
+        ["lg"] = 32,
+        ["xl"] = 48,
+        ["xxl"] = 64
+    };
+
+    public InfoOAModel infoOAModel = new InfoOAModel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var localStorageAccessToken = await JSRuntime.InvokeAsync<string>("localStorageFunctions.getItem", "AccessToken");
+        if (!string.IsNullOrEmpty(localStorageAccessToken))
+        {
+            TempDataService.AccessToken = localStorageAccessToken;
+        }
+        if (!string.IsNullOrEmpty(TempDataService.AccessToken))
+        {
+            infoOAModel = await manageService.GetOAInfo(TempDataService.AccessToken);
+        }
+        
+    }
+
+    private void OnClick()
+    {
+       
+    }
+
+}

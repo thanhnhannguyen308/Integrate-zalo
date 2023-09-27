@@ -1,0 +1,63 @@
+﻿@using Zalo.Web.Services;
+
+@inherits LayoutComponentBase
+@inject IJSRuntime JSRuntime
+@inject TempDataService TempDataService
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <Dropdown Placement="@Placement.BottomLeft">
+                <Overlay>
+                    @_overlayMenu
+                </Overlay>
+                <ChildContent>
+                    <Button>Select Authentication</Button>
+                </ChildContent>
+            </Dropdown>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await GetFromLocalStorage();
+    }
+    private async Task GetFromLocalStorage()
+    {
+        var localStorageCode = await JSRuntime.InvokeAsync<string>("localStorageFunctions.getItem", "code");
+        if(!string.IsNullOrEmpty(localStorageCode))
+        {
+            TempDataService.Code = localStorageCode;
+        }
+        var localStorageAccessToken = await JSRuntime.InvokeAsync<string>("localStorageFunctions.getItem", "AccessToken");
+        if (!string.IsNullOrEmpty(localStorageAccessToken))
+        {
+            TempDataService.AccessToken = localStorageAccessToken;
+        }
+    }
+
+    private RenderFragment _overlayMenu =
+    @<Menu>
+        <MenuItem>
+            <a target="_blank" rel="We CRM" href="https://oauth.zaloapp.com/v4/oa/permission?app_id=887509882762511633&redirect_uri=https%3A%2F%2Flocalhost%3A7225%2Fauth">
+                We CRM
+            </a>
+        </MenuItem>
+        <MenuItem>
+            <a target="_blank" rel="Nhan Shop" href="http://www.taobao.com/">
+                Nhan Shop
+            </a>
+        </MenuItem>
+    </Menu>;
+}
